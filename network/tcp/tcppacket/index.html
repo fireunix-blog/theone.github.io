@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="[&quot;zh-CN&quot;,&quot;zh-TW&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>TCP数据包分析 | TheONE'Blog</title><meta name="keywords" content="TCP,网络,系统,数据包,分析"><meta name="author" content="The One"><meta name="copyright" content="The One"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="TCP数据包一般也被叫做数据报文，只要使用了TCP协议在设备之间传输数据就会一定遵循TCP数据包格式，这种通用的格式可以保证数据在不同系统、不同设备上以约定好的格式来传输数据。同时TCP处于OSI七层网络模型中的第四层，所以应用层的的协议都是通过四层协议来传输数据的。如果说OSI的三层实现了通过互联网跨机器传输数据，那么可以认为四层实现了传输数据统一格式(通过TCP、UDP等协议)。本篇文章主要分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP数据包分析">
+<meta property="og:url" content="https://theone.x-matrix.in/network/tcp/tcppacket/index.html">
+<meta property="og:site_name" content="TheONE&#39;Blog">
+<meta property="og:description" content="TCP数据包一般也被叫做数据报文，只要使用了TCP协议在设备之间传输数据就会一定遵循TCP数据包格式，这种通用的格式可以保证数据在不同系统、不同设备上以约定好的格式来传输数据。同时TCP处于OSI七层网络模型中的第四层，所以应用层的的协议都是通过四层协议来传输数据的。如果说OSI的三层实现了通过互联网跨机器传输数据，那么可以认为四层实现了传输数据统一格式(通过TCP、UDP等协议)。本篇文章主要分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://theone.x-matrix.in/images/tcppacket/tcppacket.jpg">
+<meta property="article:published_time" content="2022-08-16T02:32:11.000Z">
+<meta property="article:modified_time" content="2022-08-16T10:02:50.504Z">
+<meta property="article:author" content="The One">
+<meta property="article:tag" content="TCP">
+<meta property="article:tag" content="网络">
+<meta property="article:tag" content="系统">
+<meta property="article:tag" content="数据包">
+<meta property="article:tag" content="分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://theone.x-matrix.in/images/tcppacket/tcppacket.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://theone.x-matrix.in/network/tcp/tcppacket/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//static.cloudflareinsights.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script defer="defer" data-pjax="data-pjax" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;492e83a66c304bb490fec26c50c174b4&quot;}"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"28SLBIWUDR","apiKey":"477d3e823c1c8fabe380585094a1f220","indexName":"theone","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":180,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'TCP数据包分析',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-08-16 18:02:50'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/css/custome/admonition.css"><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="TheONE'Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-code"></i><span> 编程</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/code/cpp/"><i class="fa-fw fa-brands fa-c"></i><span> C++</span></a></li><li><a class="site-page child" href="/code/rust/"><i class="fa-fw fa-brands fa-rust"></i><span> Rust</span></a></li><li><a class="site-page child" href="/code/java/"><i class="fa-fw fa-brands fa-java"></i><span> Java</span></a></li><li><a class="site-page child" href="/code/swift/"><i class="fa-fw fa-brands fa-swift"></i><span> Swift</span></a></li><li><a class="site-page child" href="/code/python/"><i class="fa-fw fa-brands fa-python"></i><span> Python</span></a></li><li><a class="site-page child" href="/code/golang/"><i class="fa-fw fa-brands fa-golang"></i><span> Golang</span></a></li><li><a class="site-page child" href="/code/javascript/"><i class="fa-fw fa-brands fa-js-square"></i><span> JavaScript</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-chart-pie"></i><span> 前端</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/web/html/"><i class="fa-fw fas fa-html5"></i><span> HTML</span></a></li><li><a class="site-page child" href="/web/html/"><i class="fa-fw fas fa-css3"></i><span> CSS</span></a></li><li><a class="site-page child" href="/web/vue/"><i class="fa-fw fa-brands fa-vuejs"></i><span> Vue</span></a></li><li><a class="site-page child" href="/web/react/"><i class="fa-fw fa-brands fa-react"></i><span> React</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-brain"></i><span> 算法</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/algorithm/base/"><i class="fa-fw fas fa-apple-whole"></i><span> 基础算法</span></a></li><li><a class="site-page child" href="/algorithm/base/"><i class="fa-fw fas fa-seedling"></i><span> 开源算法</span></a></li><li><a class="site-page child" href="/algorithm/leetcode/"><i class="fa-fw fas fa-carrot"></i><span> 力扣刷题</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-brands fa-buffer"></i><span> 虚拟化</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/hypervisor/kvm/"><i class="fa-fw fa-brands fa-osi"></i><span> KVM</span></a></li><li><a class="site-page child" href="/hypervisor/vmware/"><i class="fa-fw fas fa-cubes"></i><span> Vmware</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-brands fa-redhat"></i><span> 操作系统</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/os/linux/"><i class="fa-fw fa-brands fa-ubuntu"></i><span> 基础知识</span></a></li><li><a class="site-page child" href="/os/windows/"><i class="fa-fw fa-brands fa-suse"></i><span> 内核探秘</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-brands fa-app-store"></i><span> 应用服务</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/service/knowledge/"><i class="fa-fw fas fa-book-open"></i><span> 理论知识</span></a></li><li><a class="site-page child" href="/service/install/"><i class="fa-fw fa-brands fa-octopus-deploy"></i><span> 服务安装</span></a></li><li><a class="site-page child" href="/service/use/"><i class="fa-fw fas fa-ghost"></i><span> 服务使用</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-route"></i><span> 网络</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/network/basic/"><i class="fa-fw fas fa-network-wired"></i><span> 基础网络</span></a></li><li><a class="site-page child" href="/categories/network/protocol/"><i class="fa-fw fa-brands fa-cloudflare"></i><span> 协议学习</span></a></li><li><a class="site-page child" href="/categories/network/system/"><i class="fa-fw fa-brands fa-freebsd"></i><span> 系统实现</span></a></li><li><a class="site-page child" href="/categories/network/wireless/"><i class="fa-fw fas fa-wifi"></i><span> 无线网络</span></a></li><li><a class="site-page child" href="/network/traffic/"><i class="fa-fw fa-brands fa-servicestack"></i><span> 流量分析</span></a></li><li><a class="site-page child" href="/network/tools/"><i class="fa-fw fa-brands fa-optin-monster"></i><span> 网络工具</span></a></li><li><a class="site-page child" href="/network/router/"><i class="fa-fw fa-brands fa-padlet"></i><span> 路由器</span></a></li><li><a class="site-page child" href="/network/switch/"><i class="fa-fw fa-brands fa-phoenix-squadron"></i><span> 交换机</span></a></li><li><a class="site-page child" href="/network/tcp/"><i class="fa-fw fa-brands fa-studiovinari"></i><span> TCP/IP</span></a></li><li><a class="site-page child" href="/network/dpdk/"><i class="fa-fw fa-brands fa-pix"></i><span> DPDK</span></a></li><li><a class="site-page child" href="/network/ipv6/"><i class="fa-fw fa-brands fa-pinterest-p"></i><span> IPV6</span></a></li><li><a class="site-page child" href="/network/sdn/"><i class="fa-fw fa-brands fa-phoenix-framework"></i><span> SDN</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-lightbulb"></i><span> 云原生</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/native/docker/"><i class="fa-fw fa-brands fa-docker"></i><span> Docker</span></a></li><li><a class="site-page child" href="/native/kubernetes/"><i class="fa-fw fas fa-life-ring"></i><span> K8S</span></a></li><li><a class="site-page child" href="/native/istio/"><i class="fa-fw fas fa-kaaba"></i><span> Istio</span></a></li><li><a class="site-page child" href="/native/cicd/"><i class="fa-fw fas fa-gear"></i><span> CI/CD</span></a></li><li><a class="site-page child" href="/native/solution/"><i class="fa-fw fas fa-compass"></i><span> 解决方案</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-database"></i><span> 数据库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/database/mysql/"><i class="fa-fw fas fa-otter"></i><span> MySQL</span></a></li><li><a class="site-page child" href="/database/mongo/"><i class="fa-fw fas fa-leaf"></i><span> Mongo</span></a></li><li><a class="site-page child" href="/database/postgresql/"><i class="fa-fw fas fa-hippo"></i><span> Postgre</span></a></li><li><a class="site-page child" href="/database/postgresql/"><i class="fa-fw fas fa-memory"></i><span> Redis</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-brands fa-empire"></i><span> ELK</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/elk/apm/"><i class="fa-fw fa-brands fa-earlybirds"></i><span> APM</span></a></li><li><a class="site-page child" href="/elk/kibana/"><i class="fa-fw fa-brands fa-earlybirds"></i><span> Kibana</span></a></li><li><a class="site-page child" href="/elk/elstic/"><i class="fa-fw fa-brands fa-grunt"></i><span> Elastic</span></a></li><li><a class="site-page child" href="/elk/logstash/"><i class="fa-fw fa-brands fa-hornbill"></i><span> Logstash</span></a></li><li><a class="site-page child" href="/elk/filebeat/"><i class="fa-fw fa-brands fa-mailchimp"></i><span> Filebeat</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-cannabis"></i><span> 成长</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/growth/summary/"><i class="fa-fw fas fa-volcano"></i><span> 学习总结</span></a></li><li><a class="site-page child" href="/growth/life/"><i class="fa-fw fas fa-feather"></i><span> 生活记录</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">TheONE'Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-code"></i><span> 编程</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/code/cpp/"><i class="fa-fw fa-brands fa-c"></i><span> C++</span></a></li><li><a class="site-page child" href="/code/rust/"><i class="fa-fw fa-brands fa-rust"></i><span> Rust</span></a></li><li><a class="site-page child" href="/code/java/"><i class="fa-fw fa-brands fa-java"></i><span> Java</span></a></li><li><a class="site-page child" href="/code/swift/"><i class="fa-fw fa-brands fa-swift"></i><span> Swift</span></a></li><li><a class="site-page child" href="/code/python/"><i class="fa-fw fa-brands fa-python"></i><span> Python</span></a></li><li><a class="site-page child" href="/code/golang/"><i class="fa-fw fa-brands fa-golang"></i><span> Golang</span></a></li><li><a class="site-page child" href="/code/javascript/"><i class="fa-fw fa-brands fa-js-square"></i><span> JavaScript</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-chart-pie"></i><span> 前端</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/web/html/"><i class="fa-fw fas fa-html5"></i><span> HTML</span></a></li><li><a class="site-page child" href="/web/html/"><i class="fa-fw fas fa-css3"></i><span> CSS</span></a></li><li><a class="site-page child" href="/web/vue/"><i class="fa-fw fa-brands fa-vuejs"></i><span> Vue</span></a></li><li><a class="site-page child" href="/web/react/"><i class="fa-fw fa-brands fa-react"></i><span> React</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-brain"></i><span> 算法</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/algorithm/base/"><i class="fa-fw fas fa-apple-whole"></i><span> 基础算法</span></a></li><li><a class="site-page child" href="/algorithm/base/"><i class="fa-fw fas fa-seedling"></i><span> 开源算法</span></a></li><li><a class="site-page child" href="/algorithm/leetcode/"><i class="fa-fw fas fa-carrot"></i><span> 力扣刷题</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-brands fa-buffer"></i><span> 虚拟化</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/hypervisor/kvm/"><i class="fa-fw fa-brands fa-osi"></i><span> KVM</span></a></li><li><a class="site-page child" href="/hypervisor/vmware/"><i class="fa-fw fas fa-cubes"></i><span> Vmware</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-brands fa-redhat"></i><span> 操作系统</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/os/linux/"><i class="fa-fw fa-brands fa-ubuntu"></i><span> 基础知识</span></a></li><li><a class="site-page child" href="/os/windows/"><i class="fa-fw fa-brands fa-suse"></i><span> 内核探秘</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-brands fa-app-store"></i><span> 应用服务</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/service/knowledge/"><i class="fa-fw fas fa-book-open"></i><span> 理论知识</span></a></li><li><a class="site-page child" href="/service/install/"><i class="fa-fw fa-brands fa-octopus-deploy"></i><span> 服务安装</span></a></li><li><a class="site-page child" href="/service/use/"><i class="fa-fw fas fa-ghost"></i><span> 服务使用</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-route"></i><span> 网络</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/network/basic/"><i class="fa-fw fas fa-network-wired"></i><span> 基础网络</span></a></li><li><a class="site-page child" href="/categories/network/protocol/"><i class="fa-fw fa-brands fa-cloudflare"></i><span> 协议学习</span></a></li><li><a class="site-page child" href="/categories/network/system/"><i class="fa-fw fa-brands fa-freebsd"></i><span> 系统实现</span></a></li><li><a class="site-page child" href="/categories/network/wireless/"><i class="fa-fw fas fa-wifi"></i><span> 无线网络</span></a></li><li><a class="site-page child" href="/network/traffic/"><i class="fa-fw fa-brands fa-servicestack"></i><span> 流量分析</span></a></li><li><a class="site-page child" href="/network/tools/"><i class="fa-fw fa-brands fa-optin-monster"></i><span> 网络工具</span></a></li><li><a class="site-page child" href="/network/router/"><i class="fa-fw fa-brands fa-padlet"></i><span> 路由器</span></a></li><li><a class="site-page child" href="/network/switch/"><i class="fa-fw fa-brands fa-phoenix-squadron"></i><span> 交换机</span></a></li><li><a class="site-page child" href="/network/tcp/"><i class="fa-fw fa-brands fa-studiovinari"></i><span> TCP/IP</span></a></li><li><a class="site-page child" href="/network/dpdk/"><i class="fa-fw fa-brands fa-pix"></i><span> DPDK</span></a></li><li><a class="site-page child" href="/network/ipv6/"><i class="fa-fw fa-brands fa-pinterest-p"></i><span> IPV6</span></a></li><li><a class="site-page child" href="/network/sdn/"><i class="fa-fw fa-brands fa-phoenix-framework"></i><span> SDN</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-lightbulb"></i><span> 云原生</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/native/docker/"><i class="fa-fw fa-brands fa-docker"></i><span> Docker</span></a></li><li><a class="site-page child" href="/native/kubernetes/"><i class="fa-fw fas fa-life-ring"></i><span> K8S</span></a></li><li><a class="site-page child" href="/native/istio/"><i class="fa-fw fas fa-kaaba"></i><span> Istio</span></a></li><li><a class="site-page child" href="/native/cicd/"><i class="fa-fw fas fa-gear"></i><span> CI/CD</span></a></li><li><a class="site-page child" href="/native/solution/"><i class="fa-fw fas fa-compass"></i><span> 解决方案</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-database"></i><span> 数据库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/database/mysql/"><i class="fa-fw fas fa-otter"></i><span> MySQL</span></a></li><li><a class="site-page child" href="/database/mongo/"><i class="fa-fw fas fa-leaf"></i><span> Mongo</span></a></li><li><a class="site-page child" href="/database/postgresql/"><i class="fa-fw fas fa-hippo"></i><span> Postgre</span></a></li><li><a class="site-page child" href="/database/postgresql/"><i class="fa-fw fas fa-memory"></i><span> Redis</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-brands fa-empire"></i><span> ELK</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/elk/apm/"><i class="fa-fw fa-brands fa-earlybirds"></i><span> APM</span></a></li><li><a class="site-page child" href="/elk/kibana/"><i class="fa-fw fa-brands fa-earlybirds"></i><span> Kibana</span></a></li><li><a class="site-page child" href="/elk/elstic/"><i class="fa-fw fa-brands fa-grunt"></i><span> Elastic</span></a></li><li><a class="site-page child" href="/elk/logstash/"><i class="fa-fw fa-brands fa-hornbill"></i><span> Logstash</span></a></li><li><a class="site-page child" href="/elk/filebeat/"><i class="fa-fw fa-brands fa-mailchimp"></i><span> Filebeat</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-cannabis"></i><span> 成长</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/growth/summary/"><i class="fa-fw fas fa-volcano"></i><span> 学习总结</span></a></li><li><a class="site-page child" href="/growth/life/"><i class="fa-fw fas fa-feather"></i><span> 生活记录</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">TCP数据包分析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-16T02:32:11.000Z" title="发表于 2022-08-16 10:32:11">2022-08-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-16T10:02:50.504Z" title="更新于 2022-08-16 18:02:50">2022-08-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/network/">network</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/network/tcp/">tcp</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="TCP数据包分析"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>TCP数据包一般也被叫做数据报文，只要使用了TCP协议在设备之间传输数据就会一定遵循TCP数据包格式，这种通用的格式可以保证数据在不同系统、不同设备上以约定好的格式来传输数据。同时TCP处于<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/OSI%E6%A8%A1%E5%9E%8B">OSI七层网络模型</a>中的第四层，所以应用层的的协议都是通过四层协议来传输数据的。如果说OSI的三层实现了通过互联网跨机器传输数据，那么可以认为四层实现了传输数据统一格式(通过TCP、UDP等协议)。本篇文章主要分析TCP数据包格式，目的如下:  </p>
+<div class="note purple icon-padding flat"><i class="note-icon fas fa-fan"></i><ol>
+<li>了解并且数据TCP数据包格式</li>
+<li>通过抓包方式分析TCP数据包</li>
+</ol>
+</div>
+<p>用到工具:</p>
+<div class="note orange icon-padding flat"><i class="note-icon fas fa-hand-scissors"></i><ol>
+<li>WireShark: 一般在本地环境分析数据, 支持Mac、Windows、Linux Desktop(Linux Server可以用tshark)</li>
+<li>TCPdump: 一般用在服务端分析数据，用于定位问题，支持Mac、Linux</li>
+</ol>
+</div>
+
+
+<h2 id="TCP数据包头"><a href="#TCP数据包头" class="headerlink" title="TCP数据包头"></a>TCP数据包头</h2><div class="note primary flat"><p>TCP数据包格式图</p>
+</div>  
+<p><img src="/images/tcppacket/tcpheader.png" alt="TCP协议数据头部格式" title="TCP协议数据头部格式">  </p>
+<div class="note info flat"><p>info 代码定义</p>
+</div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* TCP头定义，共20个字节 */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">TCP_HEADER</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"> <span class="type">short</span> m_sSourPort;                         <span class="comment">// 源端口号16bit</span></span><br><span class="line"> <span class="type">short</span> m_sDestPort;                         <span class="comment">// 目的端口号16bit</span></span><br><span class="line"> <span class="type">unsigned</span> <span class="type">int</span> m_uiSequNum;       　　       <span class="comment">// 序列号32bit</span></span><br><span class="line"> <span class="type">unsigned</span> <span class="type">int</span> m_uiAcknowledgeNum;          <span class="comment">// 确认号32bit</span></span><br><span class="line"> <span class="type">short</span> m_sHeaderLenAndFlag;                <span class="comment">// 前4位：TCP头长度；中6位：保留；后6位：标志位</span></span><br><span class="line"> <span class="type">short</span> m_sWindowSize;       　　　　　      <span class="comment">// 窗口大小16bit</span></span><br><span class="line"> <span class="type">short</span> m_sCheckSum;        　　　　　       <span class="comment">// 检验和16bit</span></span><br><span class="line"> <span class="type">short</span> m_surgentPointer;      　　　　     <span class="comment">// 紧急数据偏移量16bit</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="头部格式说明"><a href="#头部格式说明" class="headerlink" title="头部格式说明"></a>头部格式说明</h3><div class="note blue icon-padding simple"><i class="note-icon fas fa-bullhorn"></i><p>下面是是头部数据结构总览，后面会对重要字段详细解释。</p>
+</div>
+<p>在TCP头部前20个字节大小固定，为TCP数据包的固定首部。</p>
+<ul>
+<li><p>源端口: 位于TCP数据包头部0-15的位置,占用两个字节,记录了发送数据端套接字端口号。</p>
+</li>
+<li><p>目的端口: 位于TCP数据包头部16-31的位置,占用两个字节,记录了数据接受套接字端口号。</p>
+</li>
+<li><p>报文序号: 位于TCP数据包头部，占用四个字节，也就是32位。使用报文中第一个数据字节的序列号表示报文序列号。</p>
+</li>
+<li><p>确认号: 发送数据方期望收到的数据段序号，用于确认发送方确认报文送达。</p>
+</li>
+<li><p>数据偏移: 也被称为首部长度，占用4位，用来标记TCP协议头部长度。</p>
+</li>
+<li><p>保留字段: 占用6位，为TCP发展预留空间，目前必须全部为0。</p>
+</li>
+<li><p>标志位: 占用6位，用来指示TCP会话中发送发或接受方根据标志位正确处理会话。</p>
+</li>
+<li><p>窗口: 也被称为滑动窗口，占用16位，最大位65535, 告知发送端接收端缓存大小，控制发送端发送速率，控制流量。</p>
+</li>
+<li><p>校验和: 占用两个字节，16位，对TCP报文(包括头部)校验，用于验证数据的正确性。</p>
+</li>
+<li><p>紧急指针: 占用16位，配置URG&#x3D;1时使用，紧急指针声明了紧急数据结束位置，用于发送紧急数据。</p>
+</li>
+<li><p>选项填充: 用于声明TCP报文中的更多信息，长度可变，最大为40字节，在设置完选项后，填充保证头部大小为32的倍数。</p>
+</li>
+</ul>
+<h3 id="报文序号详解"><a href="#报文序号详解" class="headerlink" title="报文序号详解"></a>报文序号详解</h3><div class="note success flat"><p>序号是为了接收方能够按照正确的顺序接受数据</p>
+</div>
+<p> 位于TCP数据包头部，占用四个字节，也就是32位。序号用来标记数据传输顺序，因为不管任何数据类型都会在传输层转换成字节流，举个例子，如果要发送一个字符串<code>Hello</code>，在传输层这个字符串有可能被拆分成两部分字节数据分别传输, 比如上面的字符串被拆分成了<code>He</code>和<code>llo</code>(为了方便解释，这个地方用字符串代替字节)，在实际的传输过程因为用户终端或者是网络设备、环境等因素是无法保证传输顺序正确性，此时数据接收方就会使用这个32位的序号来判断数据传输的顺序(一般在开发中不会关注这些信息，因为操作系统网络栈中实现了数据正确性的校验)。<br> 序号的取值范围为2的32次方。在建立的TCP连接中，会为传送的字节流中的每一个字节按照顺序编号，也就是说从建立TCP连接开始到TCP连接端接这个生命周期中，只要涉及到传输数据，数据中的每一个字节都会被编号，这个序号被称为字节序号。<br> 当TCP连接被建立以后，第一个字节数据的序号被称为ISN(Initial Sequence Number), 也就是初始化序号, 初始化的ISN并不一定为1，在RFC中规定，ISN的是根据时间分配的(具体的实现要以操作系统为准)，当操作系统初始化时，存在一个全局变量假设为:<code>g_number</code>会被初始化为1(或者为0)，每个4us加1, 当g_number达到最大值时会被重新初始化为0，当一旦有新的TCP连接创建时，<code>g_number</code>的值就会被赋值给ISN。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://theone.x-matrix.in">The One</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://theone.x-matrix.in/network/tcp/tcppacket/">https://theone.x-matrix.in/network/tcp/tcppacket/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://theone.x-matrix.in" target="_blank">TheONE'Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/TCP/">TCP</a><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a><a class="post-meta__tags" href="/tags/%E7%B3%BB%E7%BB%9F/">系统</a><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%8C%85/">数据包</a><a class="post-meta__tags" href="/tags/%E5%88%86%E6%9E%90/">分析</a></div><div class="post_share"><div class="social-share" data-image="/images/tcppacket/tcppacket.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/uncategorized/hello-world/"><img class="prev-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaXtjmzbZWf7edk8q43beLQ-t_DihKArW-Yw&amp;usqp=CAU" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hello World</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">The One</div><div class="author-info__description">所谓选择，都是虚幻</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/MScuti" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:theone@theone.x-matrix.in" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP%E6%95%B0%E6%8D%AE%E5%8C%85%E5%A4%B4"><span class="toc-number">1.</span> <span class="toc-text">TCP数据包头</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%B4%E9%83%A8%E6%A0%BC%E5%BC%8F%E8%AF%B4%E6%98%8E"><span class="toc-number">1.1.</span> <span class="toc-text">头部格式说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%A5%E6%96%87%E5%BA%8F%E5%8F%B7%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.2.</span> <span class="toc-text">报文序号详解</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/uncategorized/hello-world/" title="Hello World"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaXtjmzbZWf7edk8q43beLQ-t_DihKArW-Yw&amp;usqp=CAU" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/uncategorized/hello-world/" title="Hello World">Hello World</a><time datetime="2022-08-16T10:02:50.500Z" title="发表于 2022-08-16 18:02:50">2022-08-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/network/tcp/tcppacket/" title="TCP数据包分析"><img src="/images/tcppacket/tcppacket.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="TCP数据包分析"/></a><div class="content"><a class="title" href="/network/tcp/tcppacket/" title="TCP数据包分析">TCP数据包分析</a><time datetime="2022-08-16T02:32:11.000Z" title="发表于 2022-08-16 10:32:11">2022-08-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By The One</div><div class="framework-info"><span>Power By  </span><a href="x-matrix.in">The One</a><span class="footer-separator">|</span><span>Service On </span><a target="_blank" rel="noopener" href="https://github.com/">Github</a></div><div class="footer_custom_text">自由 免费 突破 共享</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '7b5904f2584cd30eef8b',
+      clientSecret: '672f46efe88bf38748fbba1c07b0ad69eada2ce5',
+      repo: 'theone.github.io',
+      owner: 'fireunix-blog',
+      admin: ['MScuti'],
+      id: '478c6e604a52ed509d58b233b015b027',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !true) {
+  if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

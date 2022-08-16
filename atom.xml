@@ -6,7 +6,7 @@
   <link href="https://theone.x-matrix.in/atom.xml" rel="self"/>
   
   <link href="https://theone.x-matrix.in/"/>
-  <updated>2022-08-15T17:13:03.566Z</updated>
+  <updated>2022-08-16T10:02:50.500Z</updated>
   <id>https://theone.x-matrix.in/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>Hello World</title>
     <link href="https://theone.x-matrix.in/uncategorized/hello-world/"/>
     <id>https://theone.x-matrix.in/uncategorized/hello-world/</id>
-    <published>2022-08-15T17:13:03.566Z</published>
-    <updated>2022-08-15T17:13:03.566Z</updated>
+    <published>2022-08-16T10:02:50.500Z</published>
+    <updated>2022-08-16T10:02:50.500Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
@@ -37,21 +37,36 @@
   </entry>
   
   <entry>
-    <title>xxx</title>
-    <link href="https://theone.x-matrix.in/test/xxx/"/>
-    <id>https://theone.x-matrix.in/test/xxx/</id>
-    <published>2022-08-14T17:52:00.000Z</published>
-    <updated>2022-08-15T17:13:03.566Z</updated>
+    <title>TCP数据包分析</title>
+    <link href="https://theone.x-matrix.in/network/tcp/tcppacket/"/>
+    <id>https://theone.x-matrix.in/network/tcp/tcppacket/</id>
+    <published>2022-08-16T02:32:11.000Z</published>
+    <updated>2022-08-16T10:02:50.504Z</updated>
     
-    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="2206426c2346de6c4b9750c3a1fe005524404e42090a5fce48951f70c823c6a9">8857952509ef9895f61625fe2d594ef3efb4a280fc899c2f56824f3887f2ae4bc501235492e8ad61a3de847ddf258acc1ac47262d12e5347de0da91899189ffe5f2d8b2fb8817bd83b5659f46121e442a18c22d46d669604ebc67d933602b26197709fff5a23efba625929837a7872790c26b2890e79258c2c820f16a2ae83c694c8c217cc165cb8139570d13008553034f28d12df688512e315d555df7f3f35ec6b7b9aa175c6e832b706077f4178c9dedf5b61c97081f5170898823a8c380109533b52833a7742392eaddab7b785307b6320bda74db8fad9aa85501e9bb5fe74999d3db947ef2b0002cf847da21b90241be4c7224d3aa32fa356a2f23096ae8e88763f55f91292c7ff58d2b9f9ca37a2599b62cbfff89bd5fbb2a88f5d54360ca34eb2b0e10e3d7c20658b17f560422f61e6d552f781e88fd878654a8b3011e2d1bda9dfdd1f510fc49ec48c41a86c4bf8fd3c7c32c462e0982804652bc5b7d0a9c2d06a9854cc4613f6a7014314760b9aedc18c55528420583423dac3c246b058d791007ed5534df093ef2e16d3f9072c4d8f2c42dde3fffa383a55ae8585c58b56d5cf0aa8c0628ad885f836e87b8d7f653cba4f6205f8d161c135b08a03ae5f08a147da9c480d0e9251da3f4fbd12c6c266c6a281e24750a37f86e2fa26a7dea73dc6bee36fba745b634036b8b5d31ddc9f16b6595b4d9ef40837e7c389d63e8479983baa3435509cd3ed72918a7552f4007ab366ad257e78ccad90671b6939a597363cd6a8c1a3a4f01d588d0d196b751070fc2ac6fa803e6a3131b85cf10bd617944e15c5febeca20d7e15a2b86a6171ab28ebb5825f28a9003489d0098443c8789ffa3ac476df41fc3b74a9cdf106eaff667d120a9058c5948d5fcdba7ce6d769d781d97e16761d4a06df2583a1eee35c71a4f3fb57accf41f04b3c601d7bffed6a11a2af4899e069731c7a34bb6084da44f0738f52e2092ac7e3988af2e015380dcbc5bc1f7cb12e80e123bd561d27e67a66ff14a3a7053e150280892b167853b08cf03789db3230f3d7cb652368a7901cbaa9c6c104a76e907131354333388dbd9791835d8528f151fbbf9d20efe0f3e293344fc1b3130a9abc048</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-    
-    
-    <summary type="html">有东西被加密了, 请输入密码查看.</summary>
+    <content type="html"><![CDATA[<p>TCP数据包一般也被叫做数据报文，只要使用了TCP协议在设备之间传输数据就会一定遵循TCP数据包格式，这种通用的格式可以保证数据在不同系统、不同设备上以约定好的格式来传输数据。同时TCP处于<a href="https://zh.wikipedia.org/wiki/OSI%E6%A8%A1%E5%9E%8B">OSI七层网络模型</a>中的第四层，所以应用层的的协议都是通过四层协议来传输数据的。如果说OSI的三层实现了通过互联网跨机器传输数据，那么可以认为四层实现了传输数据统一格式(通过TCP、UDP等协议)。本篇文章主要分析TCP数据包格式，目的如下:  </p><div class="note purple icon-padding flat"><i class="note-icon fas fa-fan"></i><ol><li>了解并且数据TCP数据包格式</li><li>通过抓包方式分析TCP数据包</li></ol></div><p>用到工具:</p><div class="note orange icon-padding flat"><i class="note-icon fas fa-hand-scissors"></i><ol><li>WireShark: 一般在本地环境分析数据, 支持Mac、Windows、Linux Desktop(Linux Server可以用tshark)</li><li>TCPdump: 一般用在服务端分析数据，用于定位问题，支持Mac、Linux</li></ol></div><h2 id="TCP数据包头"><a href="#TCP数据包头" class="headerlink" title="TCP数据包头"></a>TCP数据包头</h2><div class="note primary flat"><p>TCP数据包格式图</p></div>  <p><img src="/images/tcppacket/tcpheader.png" alt="TCP协议数据头部格式" title="TCP协议数据头部格式">  </p><div class="note info flat"><p>info 代码定义</p></div><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* TCP头定义，共20个字节 */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">TCP_HEADER</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"> <span class="type">short</span> m_sSourPort;                         <span class="comment">// 源端口号16bit</span></span><br><span class="line"> <span class="type">short</span> m_sDestPort;                         <span class="comment">// 目的端口号16bit</span></span><br><span class="line"> <span class="type">unsigned</span> <span class="type">int</span> m_uiSequNum;       　　       <span class="comment">// 序列号32bit</span></span><br><span class="line"> <span class="type">unsigned</span> <span class="type">int</span> m_uiAcknowledgeNum;          <span class="comment">// 确认号32bit</span></span><br><span class="line"> <span class="type">short</span> m_sHeaderLenAndFlag;                <span class="comment">// 前4位：TCP头长度；中6位：保留；后6位：标志位</span></span><br><span class="line"> <span class="type">short</span> m_sWindowSize;       　　　　　      <span class="comment">// 窗口大小16bit</span></span><br><span class="line"> <span class="type">short</span> m_sCheckSum;        　　　　　       <span class="comment">// 检验和16bit</span></span><br><span class="line"> <span class="type">short</span> m_surgentPointer;      　　　　     <span class="comment">// 紧急数据偏移量16bit</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="头部格式说明"><a href="#头部格式说明" class="headerlink" title="头部格式说明"></a>头部格式说明</h3><div class="note blue icon-padding simple"><i class="note-icon fas fa-bullhorn"></i><p>下面是是头部数据结构总览，后面会对重要字段详细解释。</p></div><p>在TCP头部前20个字节大小固定，为TCP数据包的固定首部。</p><ul><li><p>源端口: 位于TCP数据包头部0-15的位置,占用两个字节,记录了发送数据端套接字端口号。</p></li><li><p>目的端口: 位于TCP数据包头部16-31的位置,占用两个字节,记录了数据接受套接字端口号。</p></li><li><p>报文序号: 位于TCP数据包头部，占用四个字节，也就是32位。使用报文中第一个数据字节的序列号表示报文序列号。</p></li><li><p>确认号: 发送数据方期望收到的数据段序号，用于确认发送方确认报文送达。</p></li><li><p>数据偏移: 也被称为首部长度，占用4位，用来标记TCP协议头部长度。</p></li><li><p>保留字段: 占用6位，为TCP发展预留空间，目前必须全部为0。</p></li><li><p>标志位: 占用6位，用来指示TCP会话中发送发或接受方根据标志位正确处理会话。</p></li><li><p>窗口: 也被称为滑动窗口，占用16位，最大位65535, 告知发送端接收端缓存大小，控制发送端发送速率，控制流量。</p></li><li><p>校验和: 占用两个字节，16位，对TCP报文(包括头部)校验，用于验证数据的正确性。</p></li><li><p>紧急指针: 占用16位，配置URG&#x3D;1时使用，紧急指针声明了紧急数据结束位置，用于发送紧急数据。</p></li><li><p>选项填充: 用于声明TCP报文中的更多信息，长度可变，最大为40字节，在设置完选项后，填充保证头部大小为32的倍数。</p></li></ul><h3 id="报文序号详解"><a href="#报文序号详解" class="headerlink" title="报文序号详解"></a>报文序号详解</h3><div class="note success flat"><p>序号是为了接收方能够按照正确的顺序接受数据</p></div><p> 位于TCP数据包头部，占用四个字节，也就是32位。序号用来标记数据传输顺序，因为不管任何数据类型都会在传输层转换成字节流，举个例子，如果要发送一个字符串<code>Hello</code>，在传输层这个字符串有可能被拆分成两部分字节数据分别传输, 比如上面的字符串被拆分成了<code>He</code>和<code>llo</code>(为了方便解释，这个地方用字符串代替字节)，在实际的传输过程因为用户终端或者是网络设备、环境等因素是无法保证传输顺序正确性，此时数据接收方就会使用这个32位的序号来判断数据传输的顺序(一般在开发中不会关注这些信息，因为操作系统网络栈中实现了数据正确性的校验)。<br> 序号的取值范围为2的32次方。在建立的TCP连接中，会为传送的字节流中的每一个字节按照顺序编号，也就是说从建立TCP连接开始到TCP连接端接这个生命周期中，只要涉及到传输数据，数据中的每一个字节都会被编号，这个序号被称为字节序号。<br> 当TCP连接被建立以后，第一个字节数据的序号被称为ISN(Initial Sequence Number), 也就是初始化序号, 初始化的ISN并不一定为1，在RFC中规定，ISN的是根据时间分配的(具体的实现要以操作系统为准)，当操作系统初始化时，存在一个全局变量假设为:<code>g_number</code>会被初始化为1(或者为0)，每个4us加1, 当g_number达到最大值时会被重新初始化为0，当一旦有新的TCP连接创建时，<code>g_number</code>的值就会被赋值给ISN。</p>]]></content>
     
     
+      
+      
+    <summary type="html">&lt;p&gt;TCP数据包一般也被叫做数据报文，只要使用了TCP协议在设备之间传输数据就会一定遵循TCP数据包格式，这种通用的格式可以保证数据在不同系统、不同设备上以约定好的格式来传输数据。同时TCP处于&lt;a href=&quot;https://zh.wikipedia.org/wiki/OSI</summary>
+      
     
-    <category term="test" scheme="https://theone.x-matrix.in/categories/test/"/>
     
+    
+    <category term="network" scheme="https://theone.x-matrix.in/categories/network/"/>
+    
+    <category term="tcp" scheme="https://theone.x-matrix.in/categories/network/tcp/"/>
+    
+    
+    <category term="TCP" scheme="https://theone.x-matrix.in/tags/TCP/"/>
+    
+    <category term="网络" scheme="https://theone.x-matrix.in/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="系统" scheme="https://theone.x-matrix.in/tags/%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="数据包" scheme="https://theone.x-matrix.in/tags/%E6%95%B0%E6%8D%AE%E5%8C%85/"/>
+    
+    <category term="分析" scheme="https://theone.x-matrix.in/tags/%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
