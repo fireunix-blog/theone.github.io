@@ -19,15 +19,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://theone.x-matrix.in/uncategorized/hello-world/</loc>
-    
-    <lastmod>2022-08-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>https://theone.x-matrix.in/</loc>
