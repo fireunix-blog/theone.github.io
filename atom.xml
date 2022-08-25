@@ -6,7 +6,7 @@
   <link href="https://theone.x-matrix.in/atom.xml" rel="self"/>
   
   <link href="https://theone.x-matrix.in/"/>
-  <updated>2022-08-23T17:18:03.883Z</updated>
+  <updated>2022-08-25T08:13:12.074Z</updated>
   <id>https://theone.x-matrix.in/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="https://theone.x-matrix.in/network/tcp/tcppacket/"/>
     <id>https://theone.x-matrix.in/network/tcp/tcppacket/</id>
     <published>2022-08-16T02:32:11.000Z</published>
-    <updated>2022-08-23T17:18:03.883Z</updated>
+    <updated>2022-08-25T08:13:12.074Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;TCP数据包一般也被叫做数据报文，只要使用了TCP协议在设备之间传输数据就会一定遵循TCP数据包格式，这种通用的格式可以保证数据在不同系统、不同设备上以约定好的格式来传输数据。同时TCP处于&lt;a</summary>
+    <summary type="html">&lt;p&gt;&lt;script src=&quot;/assets/asciinema-player.js&quot;&gt;&lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/assets/asciinema-player.css&quot;</summary>
         
       
     
