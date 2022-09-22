@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>TheONE&#39;Blog</title>
   <icon>https://theone.x-matrix.in/icon.png</icon>
-  <subtitle>肉体没有心灵就无法存活</subtitle>
+  <subtitle>I don&#39;t want to believe, I want to know</subtitle>
   <link href="https://theone.x-matrix.in/atom.xml" rel="self"/>
   
   <link href="https://theone.x-matrix.in/"/>
-  <updated>2022-09-20T07:23:19.575Z</updated>
+  <updated>2022-09-22T07:49:08.317Z</updated>
   <id>https://theone.x-matrix.in/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://theone.x-matrix.in/network/tcp/tcppacket/"/>
     <id>https://theone.x-matrix.in/network/tcp/tcppacket/</id>
     <published>2022-08-16T02:32:11.000Z</published>
-    <updated>2022-09-20T07:23:19.575Z</updated>
+    <updated>2022-09-22T07:49:08.317Z</updated>
     
     
       
