@@ -6,7 +6,7 @@
   <link href="https://theone.x-matrix.in/atom.xml" rel="self"/>
   
   <link href="https://theone.x-matrix.in/"/>
-  <updated>2023-04-11T02:47:25.126Z</updated>
+  <updated>2023-04-11T08:29:01.207Z</updated>
   <id>https://theone.x-matrix.in/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://theone.x-matrix.in/network/tcp/tcppacket/"/>
     <id>https://theone.x-matrix.in/network/tcp/tcppacket/</id>
     <published>2022-08-16T02:32:11.000Z</published>
-    <updated>2023-04-11T02:47:25.126Z</updated>
+    <updated>2023-04-11T08:29:01.207Z</updated>
     
     
       
@@ -52,11 +52,43 @@
   </entry>
   
   <entry>
-    <title>CSS选择器-基本选择器</title>
+    <title>CSS选择器2-层次选择器</title>
+    <link href="https://theone.x-matrix.in/web/css/css/selector-relation/"/>
+    <id>https://theone.x-matrix.in/web/css/css/selector-relation/</id>
+    <published>2022-08-16T02:32:11.000Z</published>
+    <updated>2023-04-11T08:29:01.207Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;script src=&quot;/assets/asciinema-player.js&quot;&gt;&lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/assets/asciinema-player.css&quot; /&gt;&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="web" scheme="https://theone.x-matrix.in/categories/web/"/>
+    
+    <category term="css" scheme="https://theone.x-matrix.in/categories/web/css/"/>
+    
+    
+    <category term="CSS" scheme="https://theone.x-matrix.in/tags/CSS/"/>
+    
+    <category term="前端" scheme="https://theone.x-matrix.in/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="选择器" scheme="https://theone.x-matrix.in/tags/%E9%80%89%E6%8B%A9%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS选择器1-基本选择器</title>
     <link href="https://theone.x-matrix.in/web/css/css/selector/"/>
     <id>https://theone.x-matrix.in/web/css/css/selector/</id>
     <published>2022-08-16T02:32:11.000Z</published>
-    <updated>2023-04-11T02:47:25.126Z</updated>
+    <updated>2023-04-11T08:29:01.207Z</updated>
     
     
       
