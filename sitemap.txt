@@ -1,10 +1,11 @@
 https://theone.x-matrix.in/tags/index.html
 https://theone.x-matrix.in/network/tcp/tcppacket/
-https://theone.x-matrix.in/categories/index.html
 https://theone.x-matrix.in/web/css/css/selector-bpseudo/
 https://theone.x-matrix.in/web/css/css/selector-relation/
 https://theone.x-matrix.in/web/css/css/selector-tpseudo/
 https://theone.x-matrix.in/web/css/css/selector/
+https://theone.x-matrix.in/service/use/pdns/crecursor/
+https://theone.x-matrix.in/categories/index.html
 https://theone.x-matrix.in/
 https://theone.x-matrix.in/tags/TCP/
 https://theone.x-matrix.in/tags/%E7%BD%91%E7%BB%9C/
@@ -14,7 +15,12 @@ https://theone.x-matrix.in/tags/%E5%88%86%E6%9E%90/
 https://theone.x-matrix.in/tags/CSS/
 https://theone.x-matrix.in/tags/%E5%89%8D%E7%AB%AF/
 https://theone.x-matrix.in/tags/%E9%80%89%E6%8B%A9%E5%99%A8/
+https://theone.x-matrix.in/tags/PowerDNS/
+https://theone.x-matrix.in/tags/Recursor/
+https://theone.x-matrix.in/tags/Config/
 https://theone.x-matrix.in/categories/network/
 https://theone.x-matrix.in/categories/web/
 https://theone.x-matrix.in/categories/network/tcp/
 https://theone.x-matrix.in/categories/web/css/
+https://theone.x-matrix.in/categories/service/
+https://theone.x-matrix.in/categories/service/use/

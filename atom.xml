@@ -6,7 +6,7 @@
   <link href="https://theone.x-matrix.in/atom.xml" rel="self"/>
   
   <link href="https://theone.x-matrix.in/"/>
-  <updated>2024-05-08T02:40:47.629Z</updated>
+  <updated>2024-08-08T10:19:25.613Z</updated>
   <id>https://theone.x-matrix.in/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PowerDNS Recursor配置文件</title>
+    <link href="https://theone.x-matrix.in/service/use/pdns/crecursor/"/>
+    <id>https://theone.x-matrix.in/service/use/pdns/crecursor/</id>
+    <published>2024-08-08T10:30:10.000Z</published>
+    <updated>2024-08-08T10:19:25.613Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;script src=&quot;/assets/asciinema-player.js&quot;&gt;&lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/assets/asciinema-player.css&quot; /&gt;&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="service" scheme="https://theone.x-matrix.in/categories/service/"/>
+    
+    <category term="use" scheme="https://theone.x-matrix.in/categories/service/use/"/>
+    
+    
+    <category term="PowerDNS" scheme="https://theone.x-matrix.in/tags/PowerDNS/"/>
+    
+    <category term="Recursor" scheme="https://theone.x-matrix.in/tags/Recursor/"/>
+    
+    <category term="Config" scheme="https://theone.x-matrix.in/tags/Config/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CSS选择器4-目标伪类选择器</title>
     <link href="https://theone.x-matrix.in/web/css/css/selector-tpseudo/"/>
     <id>https://theone.x-matrix.in/web/css/css/selector-tpseudo/</id>
     <published>2023-04-12T12:37:19.000Z</published>
-    <updated>2024-05-08T02:40:47.629Z</updated>
+    <updated>2024-08-08T10:19:25.613Z</updated>
     
     
       
@@ -53,7 +85,7 @@
     <link href="https://theone.x-matrix.in/web/css/css/selector-bpseudo/"/>
     <id>https://theone.x-matrix.in/web/css/css/selector-bpseudo/</id>
     <published>2023-04-11T15:02:13.000Z</published>
-    <updated>2024-05-08T02:40:47.629Z</updated>
+    <updated>2024-08-08T10:19:25.613Z</updated>
     
     
       
@@ -85,7 +117,7 @@
     <link href="https://theone.x-matrix.in/web/css/css/selector-relation/"/>
     <id>https://theone.x-matrix.in/web/css/css/selector-relation/</id>
     <published>2023-04-10T13:30:45.000Z</published>
-    <updated>2024-05-08T02:40:47.629Z</updated>
+    <updated>2024-08-08T10:19:25.613Z</updated>
     
     
       
@@ -117,7 +149,7 @@
     <link href="https://theone.x-matrix.in/web/css/css/selector/"/>
     <id>https://theone.x-matrix.in/web/css/css/selector/</id>
     <published>2023-04-09T14:40:12.000Z</published>
-    <updated>2024-05-08T02:40:47.629Z</updated>
+    <updated>2024-08-08T10:19:25.613Z</updated>
     
     
       
@@ -149,7 +181,7 @@
     <link href="https://theone.x-matrix.in/network/tcp/tcppacket/"/>
     <id>https://theone.x-matrix.in/network/tcp/tcppacket/</id>
     <published>2022-08-16T02:32:11.000Z</published>
-    <updated>2024-05-08T02:40:47.633Z</updated>
+    <updated>2024-08-08T10:19:25.613Z</updated>
     
     
       
